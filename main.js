@@ -116,7 +116,7 @@ eval("{\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleEle
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "9867fe87e43199c7506a.svg";
+module.exports = __webpack_require__.p + "e1361d6ebaf548136d43.svg";
 
 /***/ }),
 
