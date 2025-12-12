@@ -1,0 +1,236 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+/* @media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+} */
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+/* #root, #__next {
+  isolation: isolate;
+} */
+
+
+/* CSS */
+
+@font-face {
+  font-family: "Seven Segment"; /* set name */
+  src: url(./fonts/Seven\ Segment.ttf); /* url of the font */
+}
+
+@font-face {
+  font-family: "Newspaper";
+  src: url(./fonts/OldNewspaperTypes.ttf);
+}
+
+@keyframes dayNightCycle {
+  0% {background-color: black;}
+  25% {background-color: #808090;}
+  50% {background-color: white;}
+  100% {background-color: black;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+html, body {
+  height: 100%;
+}
+
+#container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(-45deg, black, #232)
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(82, 180, 51);
+  color: white;
+  width: 200px;
+  height: 100px;
+}
+
+#storyText {
+  text-align: center;
+  color: white;
+  margin: auto 10px;
+  font-size: .8em;
+  font-family: "Newspaper", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+}
+
+#idleImgContainer {
+  animation: dayNightCycle 48s linear infinite;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#idleImgSubContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+#clock {
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  top: 10px;
+  margin-inline: auto; 
+  width: fit-content;
+  font-size: 70px;
+  font-family: "Seven Segment", "Open Sans", sans-serif, system-ui;
+  color: rgb(82, 180, 51);
+}
+
+#spacebarInfo {
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  bottom: 10px;
+  margin-inline: auto; 
+  text-align: center;
+  width: fit-content;
+  font-size: 25px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(82, 180, 51);
+}
+
+  #actionsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.action {
+  font-size: 25px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(82, 180, 51);
+  text-align: center;
+  /* text-shadow: 1px 1px 2px #111; */
+  cursor: pointer;
+  
+  transition: transform .3s, color .1s;
+}
+
+.action:hover {
+  transform: scale(1.1);
+}
+
+.action:active {
+  transform: scale(1.05);
+  /* transition-duration: transform 0.1s; */
+  color: rgb(62, 160, 31)
+}
+
+#stats {
+  margin-top: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(255, 170, 41);
+  /* 72, or 255? :) */
+  text-align: center;
+}
+
+.death {
+  color: white;
+  font-family: "Newspaper", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+#tagline {
+  color: white;
+  font-family: "Newspaper", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+#winTagline {
+  color: white;
+  font-family: "Newspaper", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-size: 12px;
+  text-align: center;
+}
+
+.alert {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  color: rgb(62, 160, 31);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: whitesmoke;
+  opacity: .95;
+  /* color: rgb(255, 170, 41); */
+  width: 60%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 9999;
+}
+
+/* #idleImg {
+  height: 100%;
+  object-fit: cover;
+} */
